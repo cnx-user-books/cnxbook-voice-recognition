@@ -1,0 +1,33 @@
+<document xmlns="http://cnx.rice.edu/cnxml">
+  <title>Methodology</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m41762</md:content-id>
+  <md:title>Methodology</md:title>
+  <md:abstract>Describes the methods we used to detect, identify, and compare formants of a voice sample to the template speaker.</md:abstract>
+  <md:uuid>265610c7-a073-4150-ad67-5b6093230f69</md:uuid>
+</metadata>
+
+<content>
+    <section id="eip-931"><title>Methodology</title><section id="eip-552"><title>Purpose</title><para id="id1266615000888">To uniquely identify a speaker based on their vowel formants using frequency domain analysis of a speaker’s voice.</para>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </section><section id="eip-218"><title>Method</title><figure id="id1266609372798"><media id="id1266609372798_media" alt="">
+            <image mime-type="image/png" src="../../media/Picture 0.png" id="id1266609372798__onlineimage" height="664" width="630"/>
+          </media>
+        <caption>Block diagram of our system's processing of a single-word input. Explained in detail below.</caption></figure>
+      </section><section id="eip-411"><title>Overview</title><para id="eip-939">The first step in doing Fourier analysis on the speaker’s voice is to first split the signal into windows(see background for more info) such that the FFT(Fast Fourier Transform) algorithm can be used to find the Fourier transform of the signal. This usually just requires that the number of windows is a power of 2, so we chose a window size of 1024 which translates to about .025 seconds in the time domain. This choice allowed us to capture substantial but not excessive information in the time domain.  Moreover, we chose to use the hamming window, which has a slower cutoff, to avoid the various negative effects(see background section) that a window with a sharp cutoff can cause. After this process is done on every window we are essentially left with an Array of Fourier transforms, with each transform representing the speaker voicing at different moments in time. 
+</para><para id="eip-428">To filter out any excessive noise in frequency ranges where we know vowel information cannot exist (as no human could have a vocal tract that produces vowels with formants in these ranges), we next apply a bandpass filter to our signal in the ranges of 0-100Hz and frequencies above 3500Hz. </para><para id="eip-161">Once this is done, the formants and their magnitudes are found in each window by finding the peaks (see <emphasis effect="bold"> Finding Peaks</emphasis>) within two frequency ranges i.e. where the two formants are known to lie from <emphasis effect="bold">Tuning. </emphasis>Then a <emphasis effect="bold">Decision Rule </emphasis>(explained below in more detail) is used to remove all the windows that are sure not to contain a vowel. Using those windows, we calculate a percent error based on where the speaker’s formants lie with respect to the template speaker’s formants, which the system is tuned to (See<emphasis effect="bold"> Tuning</emphasis>). This process is repeated for every vowel in the English language (each subject wishing to access the system must input in sequence the set of "hVd" words described in the Background section for our trials); once that is complete an average percent error is calculated based on the subject's performance across all vowels and a final decision is made based on this percent error.</para><section id="eip-604"><title>Decision Rule</title><para id="eip-520">To determine which windows possible contain vowels, the decision rule essentially removes any windows whose formant one or formant two magnitudes differ by more than 2 standard deviations away from the formant one and formant two maximum magnitudes (across windows). It also removes any false positives i.e formants that were detected outside of the possible formant range(above 100Hz and below 3500Hz). What is left are all the windows in which the vowel is being voiced. This essentially filters out all non-vowel windows and to remove any additional noise that wasn’t removed from the band pass filter.</para></section><section id="eip-287"><title>Tuning</title><para id="eip-328">To ‘tune’ our system to the template speaker, we first had to find where the speaker’s frequencies generally lie. This would form the basis for our percent error calculation when checking against another speaker’s formants. To do this we had the user voice every vowel multiple times in which we recorded where we found the first and second formants. These trials were then used to find the range in which the first and second vowel formants lie and the average first and second formant frequencies for each vowel. These were hardcoded into our code for comparison against the formants of the speaker.</para></section><section id="eip-868"><title>Finding Peaks</title><para id="eip-64">Finding peaks involved first finding the maximum magnitude in the window and then checking that it's a peak(increasing on the lefts side and decreasing on the right side of the maximum). This prevented false positives, for example detecting a magnitude that may be the highest in the window but is not a peak.
+
+To do this we simply have have a sieve that is centered around the maximum magnitude. We then check that values to the left and the right of the maximum magnitude are lower than the maximum magnitude. If this is not the case the sieve moves to the right and a new maximum is found in the window and repeats the process until a peak is found.  </para></section></section><section id="eip-246"><title>Code</title><para id="eip-311">Download our code <link url="http://dl.dropbox.com/u/13097644/code.zip">here</link>
+</para></section></section>
+    
+  </content>
+</document>

@@ -1,0 +1,129 @@
+<document xmlns="http://cnx.rice.edu/cnxml">
+  <title>Experiments, Results, Conclusions, Future Work</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m41764</md:content-id>
+  <md:title>Experiments, Results, Conclusions, Future Work</md:title>
+  <md:abstract>Summarizes our experimental procedures and our results in relation to Voice Recognition through Formant analysis.</md:abstract>
+  <md:uuid>4f641600-da44-4f62-8fb5-7794333946ea</md:uuid>
+</metadata>
+
+<content>
+    <para id="id62166">Adrian A. Galindo
+Experimental Methodology, Conclusions, and Future Work
+</para>
+    <section id="cid1">
+      <title>Experimental Methodology, Conclusions, and Future Work</title>
+      <para id="id62193">We now turn our attention to the work that went into testing our model to ensure it worked as designed.</para>
+      <section id="uid1">
+        <title>Experimental Methodology</title>
+        <para id="id62544">In order to test if our system works we had to ensure that the algorithm would produce the correct result (allow, deny) regardless of which recording of the template speaker or the two intruders we used.</para>
+        <list id="id62549" display="block" list-type="enumerated">
+          <item id="uid2">The Template User records a series of just vowels from the English language in order to train the algorithm. This recording is done on a separate day to better simulate the common variability in vocal resonance found in day to day speech. See the results for our template speaker in <link target-id="uid7"/>.
+</item>
+          <item id="uid3">Each of the 3 users (template, intruder 1, intruder 2) records each of the 12 HVD words(see <link target-id="uid6"/> which encapsulate the entirety of the English vowel space.
+</item>
+          <item id="uid4">We run the algorithm, comparing each of the 3 recordings against the originally stored vowels of the template user. A percent error is computed for each user (even the template speaker) and a decision of allow or deny is made based on the minimum error.
+</item>
+          <item id="uid5">Steps 2 through 3 are repeated a total of 3 times to ensure some measure of repeatability.
+</item>
+        </list>
+        <figure id="uid6">
+          <media id="uid6_media" alt="">
+            <image mime-type="image/png" src="../../media/hvd_words_small.png" id="uid6_onlineimage" width="360"><!-- NOTE: attribute width changes image size online (pixels). original width is 360. --></image>
+            <image mime-type="application/postscript" for="pdf" src="../../media/hvd_words_small.eps" id="uid6_printimage" print-width="9.0cm">
+              <!--NOTE: attribute width changes image size in printed PDF (if specified in .tex file)-->
+            </image>
+          </media>
+          <caption>HVD Words</caption>
+        </figure>
+        <figure id="uid7">
+          <media id="uid7_media" alt="">
+            <image mime-type="image/png" src="../../media/alex_formant_freq.png" id="uid7_onlineimage" width="510"><!-- NOTE: attribute width changes image size online (pixels). original width is 510. --></image>
+            <image mime-type="application/postscript" for="pdf" src="../../media/alex_formant_freq.eps" id="uid7_printimage" print-width="9.0cm">
+              <!--NOTE: attribute width changes image size in printed PDF (if specified in .tex file)-->
+            </image>
+          </media>
+          <caption>Our Template Speaker's Average Formant Frequencies</caption>
+        </figure>
+      </section>
+      <section id="uid8">
+        <title>Results</title>
+        <para id="id62653">When we ran our experiments we found that while the template speaker was occasionally not the person with the lowest percent error on a per-vowel basis he had the lowest percent error across the entire vowel space. We found this result to be consistent across several different trials. In each a trial a new recording of the same three people was made - often on different days, in order to allow for maximum day to day variability in voice and recording positioning. We wanted to make sure that it was not just a particular set of data that looked good against the template speaker. In addition we wanted the template speaker to make several recordings to ensure that the system could cope with differences in both the template speaker and in the potential intruders.</para>
+        <table id="uid9" summary="">
+          <tgroup cols="4">
+            <tbody>
+              <row>
+                <entry>Subject</entry>
+                <entry>Average % Error Trial 1</entry>
+                <entry>Average % Error Trial 2</entry>
+                <entry>Average % Error Trial 3</entry>
+              </row>
+              <row>
+                <entry>Template Speaker</entry>
+                <entry>7.673</entry>
+                <entry>8.902</entry>
+                <entry>7.747</entry>
+              </row>
+              <row>
+                <entry>Speaker A</entry>
+                <entry>11.787</entry>
+                <entry>11.301</entry>
+                <entry>11.102</entry>
+              </row>
+              <row>
+                <entry>Speaker B</entry>
+                <entry>20.676</entry>
+                <entry>16.933</entry>
+                <entry>12.389</entry>
+              </row>
+            </tbody>
+          </tgroup>
+          <caption>Experimental Results</caption>
+        </table>
+        <para id="id62811">More detail on each of the trials can be found in Figures  <link target-id="uid10"/>, <link target-id="uid11"/>, <link target-id="uid12"/></para>
+        <figure id="uid10">
+          <media id="uid10_media" alt="">
+            <image mime-type="image/png" src="../../media/fixed_program_alex_set1-eps-converted-to.png" id="uid10_onlineimage" width="762"><!-- NOTE: attribute width changes image size online (pixels). original width is 762. --></image>
+            <image mime-type="application/postscript" for="pdf" src="../../media/fixed_program_alex_set1-eps-converted-to.eps" id="uid10_printimage" print-width="9.0cm">
+              <!--NOTE: attribute width changes image size in printed PDF (if specified in .tex file)-->
+            </image>
+          </media>
+          <caption>Trial 1 Note: the X-Axis all 3 trials is labeled according to the HVD listings in <link target-id="uid6"/></caption>
+        </figure>
+        <figure id="uid11">
+          <media id="uid11_media" alt="">
+            <image mime-type="image/png" src="../../media/fixed_program_alex_set2-eps-converted-to.png" id="uid11_onlineimage" width="1148"><!-- NOTE: attribute width changes image size online (pixels). original width is 1148. --></image>
+            <image mime-type="application/postscript" for="pdf" src="../../media/fixed_program_alex_set2-eps-converted-to.eps" id="uid11_printimage" print-width="9.0cm">
+              <!--NOTE: attribute width changes image size in printed PDF (if specified in .tex file)-->
+            </image>
+          </media>
+          <caption>Trial 2</caption>
+        </figure>
+        <figure id="uid12">
+          <media id="uid12_media" alt="">
+            <image mime-type="image/png" src="../../media/fixed_program_alex_set3-eps-converted-to.png" id="uid12_onlineimage" width="1154"><!-- NOTE: attribute width changes image size online (pixels). original width is 1154. --></image>
+            <image mime-type="application/postscript" for="pdf" src="../../media/fixed_program_alex_set3-eps-converted-to.eps" id="uid12_printimage" print-width="9.0cm">
+              <!--NOTE: attribute width changes image size in printed PDF (if specified in .tex file)-->
+            </image>
+          </media>
+          <caption>Trial 3</caption>
+        </figure>
+      </section>
+      <section id="uid13">
+        <title>Conclusions</title>
+        <para id="id62882">In conclusion we found that the system we built does exactly as we intended: it is able to tell the difference between the user it was tuned to and everybody else.
+There were a few caveats to the system we built. In particular we noticed that when the template speaker got a little sick the system was no longer able to grant him access. Due to the newfound resonant characteristics of the template speaker's vocal tract caused no doubt by the addition of mucous and swelling, it was quite difficult for the system to match it to the stored template formants.
+This is a bit of a sticky problem because we want to tune the system as sharply as we can to the template speaker's resonant characteristics so that even a slight change would cause the system to revoke the user. These slight changes seen through a security lens are an added opportunity to take advantage of the entire variability space to increase "passphrase" entropy and make the entire system more secure. The same slight changes seen through a usability perspective however are seen as a rather formidable annoyance for the sick template user attempting to gain access to his environment. This balance between lenience and security is one that most biometric security systems must weigh. Anyone who has attempted to use a fingerprint reader after a long shower (raisined fingers) knows which way the company that made that biometric system choose to lean towards. In the same manner we figured that while the balance could definitely use some fine tuning we figured it would be best to produce a false negative than to produce a false positive and allow a rouge user access to the secure environment.
+Of interesting note we noticed that when a user changed the pitch of his voice in order to try to match the template speaker the position of the formants in the frequency domain changed very little. This result shows that the system is indeed tuned to a user's resonant characteristics and not just the pitch of the voice. This result also makes it extremely difficult for a would be attacker to gain access to the system even if he did know the exact passphrase and what the secured template user sounds like.</para>
+      </section>
+      <section id="uid14">
+        <title>Future Work </title>
+        <para id="id62913">In its current state the formant detection system makes use of several very convenient MATLAB features such as the filter design tool to rapidly create a computable filter. It also leverages the rather large amount of computational power available to modern computer platforms to make some rather sharp filters and decisions. While it is true that we did not set out to make the most efficient mechanism by which to identify a user based on formants, we would truly like to see this system implemented in an embedded hardware environment. This would require that we trim the program and its requisite filters considerably just to get the algorithm to fit within the confines of the restricted memory space available in most embedded environments. In addition this type of embedded security system is of little use if it cannot be run at real or near-real time speeds. Use of a powerful embedded environment such as an FPGA could see this type of implementation without a drastic reduction in the filter sharpness; however such an implementation would also require considerable effort in order to port the filter and surrounding decision rules into the hardware reconfigurable languages of Verilog or VHDL.</para>
+        <section id="uid15">
+          <title>Hidden Feature: Vowel Recognition</title>
+          <para id="id62945">In order to accurately guess whether the right vowel is even being spoken before attempting to compute a percent error from a potentially wrong vowel to the template speaker we had to build in some sort of vowel recognition feature. The recognition implementation is rather crude but we found it to be quite accurate in our tests. We never tested the vowel recognition alone but rather saw the results of it in the streaming debug statements our program can output. Based solely on this we believe that the subsystem could be expanded and refined to both aide in the voice recognition process and to increase security by fully checking the phrase spoken.</para>
+        </section>
+      </section>
+    </section>
+  </content>
+</document>

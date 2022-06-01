@@ -1,0 +1,16 @@
+<document xmlns="http://cnx.rice.edu/cnxml">
+
+<title>Introduction</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m41854</md:content-id>
+  <md:title>Introduction</md:title>
+  <md:abstract>Basic introduction to our voice recognition project.</md:abstract>
+  <md:uuid>2f9375b4-bb7a-4589-ab1e-59dcd5b31571</md:uuid>
+</metadata>
+
+<content>
+  <section id="eip-456"><title>Project Introduction</title><para id="eip-117">The project detailed in this collection describes an exploration of the uniqueness and variability of the human vocal tract across different speakers and, by extension, the potential for speaker identification based on their voicing characteristics (that is, the frequency signatures of their vowels).</para><para id="eip-707">This group recognizes the existence of more robust voice recognition systems based on theory of greater complexity (e.g. autoregression, Gaussian mixture models) that look at more elements of the subject's speech such as pacing and speed, consonants, etc. However, the scheme detailed below was developed solely based on the characteristics of a speaker's vowels with the hypothesis that a system based on such an approach, if reliable, would potentially be computationally less intense and comparatively simpler to implement in hardware and apply.</para><para id="eip-776">The sections below detail, respectively: some of the theoretical concepts relevant to this project; the finer points of the recognition scheme we developed; the experiments carried out to evaluate the scheme, as well as the data and conclusions we obtained from the tests.
+</para></section>
+</content>
+
+</document>
